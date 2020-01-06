@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/clear"
+    android:padding="@dimen/layout_weather_pading"
+
+    >
+
+
+    <ImageView
+        android:id="@+id/img_refresh"
+        android:layout_width="@dimen/img_refresh_width"
+        android:layout_height="@dimen/img_refresh_height"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/refresh"
+        android:onClick="onRefreshClickListener"
+        />
+
+
+
+
+    <TextView
+        android:id="@+id/txt_city_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/tct_city_margin_top"
+        android:text="@string/txt_city_tehran"
+        android:textStyle="bold"
+        android:padding="@dimen/txt_city_padfing"
+        android:textColor="@color/weater_info"
+        android:textSize="@dimen/txt_city_size"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/txt_city_name"
+        app:layout_constraintLeft_toLeftOf="@id/txt_city_name"
+        android:textSize="@dimen/txt_date_size"
+        android:textColor="@color/weater_info"
+        android:text="2019,10,10"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/txt_degree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_date"
+        app:layout_constraintLeft_toLeftOf="@id/txt_city_name"
+        android:layout_marginTop="128dp"
+        android:gravity="center"
+        android:textColor="@color/weater_info"
+        android:textSize="@dimen/txt_degree_size"
+        android:text="24"
+        />
+    <ImageView
+        android:id="@+id/img_degree"
+        android:layout_width="@dimen/img_degree_width"
+        android:layout_height="@dimen/img_degree_height"
+        app:layout_constraintTop_toTopOf="@id/txt_degree"
+        app:layout_constraintLeft_toRightOf="@id/txt_degree"
+        android:src="@drawable/circle_degree"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/txt_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_degree"
+        app:layout_constraintLeft_toLeftOf="@id/txt_degree"
+        android:textSize="@dimen/txt_weather_size"
+        android:padding="@dimen/txt_weather_padding"
+        android:text="sunny"
+        android:textColor="@color/weater_info"
+        android:textStyle="bold"
+        />
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        app:layout_constraintTop_toBottomOf="@id/txt_weather"
+        app:layout_constraintLeft_toLeftOf="@id/txt_weather"
+        android:layout_marginTop="20dp"
+        android:background="@color/weater_info"
+        android:alpha="0.5"
+
+        />
+    <TextView
+        android:id="@+id/txt_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintLeft_toLeftOf="@id/line"
+        android:layout_marginTop="10dp"
+        android:text="@string/txt_day_text"
+        android:textColor="@color/weater_info"
+        android:textSize="@dimen/txt_day_text_size"
+
+
+        />
+    <TextView
+        android:id="@+id/txt_night"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_day"
+        app:layout_constraintLeft_toLeftOf="@id/txt_day"
+        android:layout_marginTop="@dimen/txt_day_margin_top"
+        android:text="@string/txt_night_text"
+        android:textColor="@color/weater_info"
+        android:textSize="@dimen/txt_day_text_size"
+
+
+        />
+    <TextView
+        android:id="@+id/txt_day_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/txt_day"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        android:layout_marginTop="@dimen/txt_day_margin_top"
+        android:textColor="@color/weater_info"
+
+        android:textSize="@dimen/txt_day_text_size"
+        android:text=" sunny"
+
+        />
+    <TextView
+        android:id="@+id/txt_night_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/txt_night"
+        app:layout_constraintTop_toBottomOf="@id/txt_day_value"
+        android:layout_marginTop="@dimen/txt_day_margin_top"
+        android:textColor="@color/weater_info"
+
+        android:textSize="@dimen/txt_day_text_size"
+        android:text=" clear"
+
+        />
+    <TextView
+        android:id="@+id/txt_max_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintLeft_toRightOf="@id/txt_day_value"
+        android:layout_marginTop="@dimen/txt_max_margin_top"
+        android:layout_marginLeft="@dimen/txt_max_margin_left"
+        android:text="@string/txt_max_text"
+        android:textColor="@color/weater_info"
+        android:textSize="@dimen/txt_max_text_size"
+
+        />
+
+
+    <TextView
+        android:id="@+id/txt_min_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintLeft_toRightOf="@id/txt_max_text"
+        android:layout_marginTop="@dimen/txt_min_margin_top"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/txt_min_text"
+        android:textColor="@color/weater_info"
+        android:textSize="@dimen/txt_max_text_size"
+
+        />
+    <TextView
+        android:id="@+id/txt_max_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_max_text"
+        app:layout_constraintLeft_toLeftOf="@id/txt_max_text"
+        app:layout_constraintRight_toRightOf="@id/txt_max_text"
+        android:layout_marginTop="@dimen/txt_max_margin_top"
+        android:text="20"
+        android:textColor="@color/weater_info"
+        android:textSize="@dimen/txt_max_text_size"
+
+        />
+    <TextView
+        android:id="@+id/txt_min_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_min_text"
+        app:layout_constraintLeft_toLeftOf="@id/txt_min_text"
+        app:layout_constraintRight_toRightOf="@id/txt_min_text"
+        android:layout_marginTop="@dimen/txt_min_margin_top"
+        android:text="10"
+        android:textColor="@color/weater_info"
+        android:textSize="@dimen/txt_max_text_size"
+
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

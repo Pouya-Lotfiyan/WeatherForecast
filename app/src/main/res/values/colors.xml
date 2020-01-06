@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="weater_info">@android:color/white</color>
+    <color name="dots_layout_color">#65030000</color>
+    <color name="dots_visible">#FFFFFF</color>
+    <color name="dots_invisible">#65948D8D</color>
 </resources>

@@ -2,11 +2,26 @@ package model;
 
 import androidx.annotation.NonNull;
 
+import com.example.weatherforecast.R;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 public class WeatherForecaster {
+
+
+    public final static String WEATHER_SUNNY ="sunny";
+
+    public final static String WEATHER_CLOUDY ="cloudy";
+
+    public final static String WEATHER_CLEAR ="clear";
+
+    public final static String WEATHER_RAINY ="rainy";
+
+
+
+
 
     @SerializedName("Headline")
     private  HeadLine headLine ;
@@ -20,6 +35,97 @@ public class WeatherForecaster {
         this.dailyForecasts = dailyForecasts;
     }
 
+    public static int  getAverage(DailyForecast forecast) {
+
+        int max =  forecast.temoerature.max.value;
+        int min = forecast.temoerature.min.value;
+
+        return (max + min)/2 ;
+
+    }
+
+    public static String getDayWeather(DailyForecast forecast) {
+        String weather = forecast.day.iconPhrase.toLowerCase();
+
+
+
+        if (weather.contains("shower")) {
+
+            return WEATHER_RAINY;
+
+
+        }
+        if (weather.contains("cloudy")){
+
+
+            return WEATHER_CLOUDY;
+
+        }
+
+        if (weather.contains("sunny")){
+
+            return WEATHER_SUNNY;
+
+
+
+        }
+        if (weather.contains("clear")){
+
+            return WEATHER_CLEAR;
+
+
+
+        }
+
+
+
+
+        return "no-parameter";
+
+    }
+
+    public static String getNightWeather(DailyForecast forecast) {
+
+        String weather = forecast.night.iconPhrase.toLowerCase();
+
+
+
+        if (weather.contains("shower")) {
+
+            return WEATHER_RAINY;
+
+
+        }
+        if (weather.contains("cloudy")){
+
+
+            return WEATHER_CLOUDY;
+
+        }
+
+        if (weather.contains("sunny")){
+
+            return WEATHER_SUNNY;
+
+
+
+        }
+        if (weather.contains("clear")){
+
+            return WEATHER_CLEAR;
+
+
+
+        }
+
+
+
+
+        return "no-parameter";
+
+    }
+
+
     public HeadLine getHeadLine() {
         return headLine;
     }
@@ -27,6 +133,27 @@ public class WeatherForecaster {
     public List<DailyForecast> getDailyForecasts() {
         return dailyForecasts;
     }
+
+
+
+
+
+    public static String getExactDateFormat(DailyForecast forecast) {
+
+        String date = forecast.date;
+
+        return date.substring(0, date.lastIndexOf("T"));
+
+
+
+
+    }
+
+
+
+
+
+
 
     public static class HeadLine {
 
@@ -50,15 +177,15 @@ public class WeatherForecaster {
     public static class DailyForecast {
 
         @SerializedName("Date")
-        String date;
+        private   String date;
         @SerializedName("Temperature")
-        Temoerature temoerature ;
+        private Temoerature temoerature ;
         @SerializedName("Day")
-        Day day ;
+        private Day day ;
         @SerializedName("Night")
-        Night night ;
+        private Night night ;
         @SerializedName("Link")
-        String link ;
+        private   String link ;
 
         public String getDate() {
             return date;

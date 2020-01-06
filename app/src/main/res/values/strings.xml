@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Weather Forecast</string>
+    <string name="txt_city_tehran">Tehran</string>
+    <string name="txt_day_text">Day : </string>
+    <string name="txt_night_text">Night : </string>
+    <string name="txt_max_text">Max</string>
+    <string name="txt_min_text">Min</string>
 </resources>

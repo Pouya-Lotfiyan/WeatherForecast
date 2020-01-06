@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="backgrounds"  >
+
+        <item>@drawable/clear</item>
+        <item>@drawable/sunny</item>
+        <item>@drawable/cloudy</item>
+        <item>@drawable/rainy</item>
+
+    </array>
+
+    <string-array name="weather" >
+
+
+
+    <item> Clear</item>
+    <item> Sunny</item>
+    <item> Cloudy</item>
+    <item> Rainy</item>
+
+
+
+
+</string-array>
+
+
+
+
+
+
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dots_height">32dp</dimen>
+    <dimen name="dots_margin_bottom">32dp</dimen>
+    <dimen name="layout_weather_pading">16dp</dimen>
+    <dimen name="txt_city_size">64sp</dimen>
+    <dimen name="tct_city_margin_top">128dp</dimen>
+    <dimen name="txt_date_size">16sp</dimen>
+    <dimen name="txt_degree_size">64sp</dimen>
+    <dimen name="img_degree_width">16dp</dimen>
+    <dimen name="img_degree_height">16dp</dimen>
+    <dimen name="txt_weather_size">32sp</dimen>
+    <dimen name="line_height">2dp</dimen>
+    <dimen name="txt_day_text_size">24sp</dimen>
+    <dimen name="txt_day_margin_top">10dp</dimen>
+    <dimen name="txt_max_text_size">24sp</dimen>
+    <dimen name="txt_max_margin_top">10dp</dimen>
+    <dimen name="txt_max_margin_left">80dp</dimen>
+
+    <dimen name="txt_min_margin_left">80dp</dimen>
+    <dimen name="txt_min_margin_top">10dp</dimen>
+    <dimen name="img_refresh_width">40dp</dimen>
+    <dimen name="img_refresh_height">40dp</dimen>
+    <dimen name="txt_city_padfing">4dp</dimen>
+    <dimen name="txt_weather_padding">4dp</dimen>
+</resources>
