@@ -139,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
 
                     WeatherForecaster onjectRoot = response.body();
                     viewPager.setAdapter(new SildesAdapter(onjectRoot.getDailyForecasts(), MainActivity.this));
-                    totalView =onjectRoot.getDailyForecasts().size();
-                    showDots(totalView , viewPager.getCurrentItem());
+                    totalView = onjectRoot.getDailyForecasts().size();
+                    showDots(totalView, viewPager.getCurrentItem());
                     viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                         @Override
                         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onPageSelected(int position) {
 
-                            showDots(totalView ,position);
+                            showDots(totalView, position);
 
 
                         }
@@ -161,13 +161,26 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                     Toast.makeText(MainActivity.this, "Updated", Toast.LENGTH_SHORT).show();
-                    DataController.saveData(MainActivity.this , onjectRoot);
+                    DataController.saveData(MainActivity.this, onjectRoot);
+
+                       }else if (response.code() == 503 ){
+
+                    AlertDialog alertDialog=   new AlertDialog.Builder(MainActivity.this)
+                            .setMessage(" please try  again 24 hours later ")
+                            .setTitle("request limited")
+                            .setNeutralButton("ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    dialog.dismiss();
+                                }
+                            })
+
+                            .show();
 
 
 
-
-
-                }else {
+                     }else  {
 
                     AlertDialog alertDialog=   new AlertDialog.Builder(MainActivity.this)
                             .setMessage("not Found any result")

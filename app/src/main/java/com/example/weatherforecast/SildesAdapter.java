@@ -1,6 +1,8 @@
 package com.example.weatherforecast;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,17 +29,40 @@ public class SildesAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        WeatherForecaster.DailyForecast  forecast = forecasts.get(position);
+
+        final WeatherForecaster.DailyForecast  forecast = forecasts.get(position);
         View slide = LayoutInflater.from(context)
                 .inflate(R.layout.layout_weather ,container ,false);
+        View.OnClickListener webEventListenner =  new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String link = forecast.getLink();
+                Intent  webFollower = new Intent(Intent.ACTION_VIEW);
+                webFollower.setData(Uri.parse(link));
+                if( webFollower.resolveActivity(context.getPackageManager()) != null ){
+                    context.startActivity(webFollower);
+                }
+
+
+            }
+        };
+        TextView city =   slide.findViewById(R.id.txt_city_name);
+        city.setOnClickListener(webEventListenner);
+
+
 
         //date
         String date = WeatherForecaster.getExactDateFormat(forecast);
         ( (TextView) slide.findViewById(R.id.txt_date) ).setText(date);
 
+
+
+
        //average
         int  ave = WeatherForecaster.getAverage(forecast);
-        ( (TextView) slide.findViewById(R.id.txt_degree) ).setText(ave+"");
+        TextView aveDegree = slide.findViewById(R.id.txt_degree);
+        aveDegree.setText(ave+"");
+        aveDegree.setOnClickListener(webEventListenner);
 
         //Weather
         String dayWeather = WeatherForecaster.getDayWeather(forecast);
