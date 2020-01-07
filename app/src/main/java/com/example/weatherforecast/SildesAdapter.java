@@ -72,10 +72,10 @@ public class SildesAdapter extends PagerAdapter {
             public void onClick(View v) {
 
                 if (unit.getText().toString().equals("F")){
-                    aveDegree.setText(celicius);
+                    aveDegree.setText(celicius+"");
                     unit.setText("C");
                 }else {
-                    aveDegree.setText(celicius+30);
+                    aveDegree.setText( (celicius+30 ) +"");
                     unit.setText(forecast.getTemoerature().getMax().getUnit());
                 }
 
