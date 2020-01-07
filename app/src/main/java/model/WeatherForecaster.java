@@ -44,6 +44,14 @@ public class WeatherForecaster {
 
     }
 
+
+    public static int toCelicius (int fahrenheit ){
+
+       return fahrenheit-30;
+
+
+    }
+
     public static String getDayWeather(DailyForecast forecast) {
         String weather = forecast.day.iconPhrase.toLowerCase();
 

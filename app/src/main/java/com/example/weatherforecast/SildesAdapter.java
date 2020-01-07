@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,12 +19,14 @@ public class SildesAdapter extends PagerAdapter {
 
     private List< WeatherForecaster.DailyForecast >  forecasts ;
     private  Context context;
+    private  int celicius ;
 
 
     public SildesAdapter(List<WeatherForecaster.DailyForecast> forecasts  , Context context) {
         this.forecasts = forecasts;
         this.context = context;
     }
+
 
 
     @NonNull
@@ -33,7 +36,9 @@ public class SildesAdapter extends PagerAdapter {
         final WeatherForecaster.DailyForecast  forecast = forecasts.get(position);
         View slide = LayoutInflater.from(context)
                 .inflate(R.layout.layout_weather ,container ,false);
-        View.OnClickListener webEventListenner =  new View.OnClickListener() {
+
+        TextView city =   slide.findViewById(R.id.txt_city_name);
+        city.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String link = forecast.getLink();
@@ -42,27 +47,41 @@ public class SildesAdapter extends PagerAdapter {
                 if( webFollower.resolveActivity(context.getPackageManager()) != null ){
                     context.startActivity(webFollower);
                 }
-
-
             }
-        };
-        TextView city =   slide.findViewById(R.id.txt_city_name);
-        city.setOnClickListener(webEventListenner);
+        });
 
 
 
         //date
         String date = WeatherForecaster.getExactDateFormat(forecast);
         ( (TextView) slide.findViewById(R.id.txt_date) ).setText(date);
-
+        //unit
+        final   TextView unit = slide.findViewById(R.id.txt_unit);
+        unit.setText(forecast.getTemoerature().getMax().getUnit());
 
 
 
        //average
         int  ave = WeatherForecaster.getAverage(forecast);
-        TextView aveDegree = slide.findViewById(R.id.txt_degree);
+        final TextView aveDegree = slide.findViewById(R.id.txt_degree);
+        celicius = WeatherForecaster.toCelicius(ave);
+
         aveDegree.setText(ave+"");
-        aveDegree.setOnClickListener(webEventListenner);
+        aveDegree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (unit.getText().toString().equals("F")){
+                    aveDegree.setText(celicius);
+                    unit.setText("C");
+                }else {
+                    aveDegree.setText(celicius+30);
+                    unit.setText(forecast.getTemoerature().getMax().getUnit());
+                }
+
+
+            }
+        });
 
         //Weather
         String dayWeather = WeatherForecaster.getDayWeather(forecast);

@@ -69,19 +69,29 @@
         android:src="@drawable/circle_degree"
         android:scaleType="fitXY"
         />
-
     <TextView
-        android:id="@+id/txt_weather"
+        android:id="@+id/txt_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_degree"
-        app:layout_constraintLeft_toLeftOf="@id/txt_degree"
-        android:textSize="@dimen/txt_weather_size"
-        android:padding="@dimen/txt_weather_padding"
-        android:text="sunny"
+        app:layout_constraintBottom_toTopOf="@id/txt_weather"
+        app:layout_constraintLeft_toRightOf="@id/txt_degree"
+        android:textSize="16sp"
+        android:text="F"
         android:textColor="@color/weater_info"
         android:textStyle="bold"
         />
+    <TextView
+    android:id="@+id/txt_weather"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/txt_degree"
+    app:layout_constraintLeft_toLeftOf="@id/txt_degree"
+    android:textSize="@dimen/txt_weather_size"
+    android:padding="@dimen/txt_weather_padding"
+    android:text="sunny"
+    android:textColor="@color/weater_info"
+    android:textStyle="bold"
+    />
     <View
         android:id="@+id/line"
         android:layout_width="match_parent"

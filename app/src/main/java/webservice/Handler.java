@@ -14,8 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Handler {
 
 
-        public final static  String BASE_URl ="";
-        public static final String API_KEY = "";
+        public final static  String BASE_URl ="http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+        public static final String API_KEY = "SoqAllZXPcmkH3JBtW637KAysPkN8UQZ";
         private  static  WeatherForecaster weatherForecaster;
         private Callback<WeatherForecaster> callback;
         private  Retrofit handler ;
